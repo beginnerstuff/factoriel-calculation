@@ -1,20 +1,32 @@
 
 
-print("Faktoriyel hesaplama uygulamasına hoşgeldiniz\n")
+class FactorielCalculation:
+    print("Faktoriyel hesaplama uygulamasına hoşgeldiniz\n")
+    number = 0
 
+    def factorielCalculate(self,arg):
+        if arg == 0:
+            return 1
         
-def factoriel(sayı):
-    if sayı == 0:
-        return 1
-    return sayı * factoriel(sayı-1)
+        return arg * self.factorielCalculate(arg-1)
 
-while True:
-    try:
-        number = int(input("Bir sayı giriniz:"))
-        print("girmiş olduğunuz sayının faktoriyeli ",factoriel(number)," dir.")
-        input("\nçıkmak için bir tuşa basınız.")
-        break
+    def showResult(self):
 
-    except ValueError:
-        print("Lütfen pozitif bir sayı girdiğinize emin olunuz !!")
+        while True:
+            try:
+                self.number = int(input("Bir sayı giriniz:"))
+
+                control = True
+                while control:
+                        result = self.factorielCalculate(self.number)
+                        print("girmiş olduğunuz sayının faktoriyeli ",result," dir.")
+                        control = False
+
+            except ValueError:
+                print("Lütfen pozitif bir sayı girdiğinize emin olunuz !!")
+
+
+obj = FactorielCalculation()
+obj.showResult()
+
 
